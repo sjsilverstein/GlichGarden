@@ -5,14 +5,25 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour {
 
     public AudioClip[] levelMusicChangeArray;
-    
-    // Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        Debug.Log("DontDestroyOnLoad "+ name);
+    }
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        AudioClip thisLevelMusic = levelMusicChangeArray[level];
+        Debug.Log("Play Clip: " + levelMusicChangeArray[level]);
+        if (thisLevelMusic) {
+            audioSource.clip = thisLevelMusic;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+    }
 }
