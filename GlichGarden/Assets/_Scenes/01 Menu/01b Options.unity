@@ -1011,6 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 1234295725}
+  diffSlider: {fileID: 1907994839}
   LevelManager: {fileID: 114220753197773748, guid: a2e88a2c68cfaad41b429dddfbd4d6a4,
     type: 2}
 --- !u!4 &1552663635
